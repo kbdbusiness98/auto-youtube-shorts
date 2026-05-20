@@ -118,24 +118,9 @@ input[type=range]{width:100%;accent-color:var(--accent);margin-top:5px}
 <body data-ch="finance">
 <div id="app">
   <div class="ch-bar">
-    <div class="ch-tab active" data-ch="finance" onclick="switchChannel('finance')">
-      <div class="icon">💰</div>
-      <div class="name">FINANCE TIPS</div>
-      <div class="cnt" id="cnt-finance">0 scripts</div>
-      <div class="bar"></div>
-    </div>
-    <div class="ch-tab" data-ch="tech" onclick="switchChannel('tech')">
-      <div class="icon">💻</div>
-      <div class="name">TECH & AI</div>
-      <div class="cnt" id="cnt-tech">0 scripts</div>
-      <div class="bar"></div>
-    </div>
-    <div class="ch-tab" data-ch="edu" onclick="switchChannel('edu')">
-      <div class="icon">🎓</div>
-      <div class="name">QUICK FACTS</div>
-      <div class="cnt" id="cnt-edu">0 scripts</div>
-      <div class="bar"></div>
-    </div>
+    <div class="ch-tab active" data-ch="finance" onclick="switchChannel('finance')"><div class="icon">💰</div><div class="name">FINANCE TIPS</div><div class="cnt" id="cnt-finance">0 scripts</div><div class="bar"></div></div>
+    <div class="ch-tab" data-ch="tech" onclick="switchChannel('tech')"><div class="icon">💻</div><div class="name">TECH & AI</div><div class="cnt" id="cnt-tech">0 scripts</div><div class="bar"></div></div>
+    <div class="ch-tab" data-ch="edu" onclick="switchChannel('edu')"><div class="icon">🎓</div><div class="name">QUICK FACTS</div><div class="cnt" id="cnt-edu">0 scripts</div><div class="bar"></div></div>
   </div>
   <div class="body">
     <div class="lp">
@@ -144,9 +129,9 @@ input[type=range]{width:100%;accent-color:var(--accent);margin-top:5px}
         <div class="ch-card-desc" id="ch-desc">Personal finance tips, budgeting hacks, investing basics</div>
       </div>
       <div class="sec">
-        <div class="lbl">GEMINI API KEY <span class="free-badge">FREE</span></div>
-        <input type="password" id="api-key" placeholder="AIza..."/>
-        <div class="api-notice">Free key at <a href="https://aistudio.google.com" target="_blank">aistudio.google.com</a> → Get API Key (1,500 req/day free)</div>
+        <div class="lbl">GROQ API KEY <span class="free-badge">FREE</span></div>
+        <input type="password" id="api-key" placeholder="gsk_..."/>
+        <div class="api-notice">Free key at <a href="https://console.groq.com" target="_blank">console.groq.com</a> → API Keys → Create (no credit card)</div>
       </div>
       <div class="sec">
         <div class="lbl">TONE</div>
@@ -174,21 +159,16 @@ input[type=range]{width:100%;accent-color:var(--accent);margin-top:5px}
     </div>
     <div class="qp">
       <div class="lbl" style="margin-bottom:10px">SCRIPT QUEUE</div>
-      <div id="queue-list">
-        <div class="empty-q"><div class="pulse" style="font-size:22px;margin-bottom:8px">▶</div>No scripts yet</div>
-      </div>
+      <div id="queue-list"><div class="empty-q"><div class="pulse" style="font-size:22px;margin-bottom:8px">▶</div>No scripts yet</div></div>
     </div>
     <div class="dp" id="detail-panel">
-      <div class="empty-dp">
-        <div class="empty-dp-t">READY</div>
-        <div class="empty-dp-s">Select a channel and generate scripts</div>
-      </div>
+      <div class="empty-dp"><div class="empty-dp-t">READY</div><div class="empty-dp-s">Select a channel and generate scripts</div></div>
     </div>
   </div>
 </div>
 
 <script>
-const CHANNELS = {
+const CHANNELS={
   finance:{name:"💰 Money Moves Daily",desc:"Personal finance tips, budgeting hacks, investing basics",prompt:"personal finance, budgeting, saving money, investing basics, financial independence, passive income strategies, debt payoff, credit scores",rpm:"$0.10–$0.25",disclaimer:"This content is for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making investment decisions.",disclosureLabel:"This video was created with AI assistance."},
   tech:{name:"💻 TechIn60",desc:"AI tools, productivity apps, life-changing tech hacks",prompt:"AI tools, productivity software, tech hacks, useful apps, automation tools, digital tools that save time, emerging technology explained simply",rpm:"$0.08–$0.20",disclaimer:"Product mentions are for informational purposes only. Not sponsored unless stated.",disclosureLabel:"This video was created with AI assistance."},
   edu:{name:"🎓 Did You Know Daily",desc:"Mind-blowing quick facts, science, history, psychology",prompt:"surprising facts, science explained simply, psychology insights, history facts people don't know, counterintuitive truths, mind-blowing statistics",rpm:"$0.06–$0.15",disclaimer:"Facts are researched for accuracy. Sources available on request.",disclosureLabel:"This video was created with AI assistance."}
@@ -199,11 +179,10 @@ let state={ch:"finance",tone:"Educational",batch:7,generating:false,stopFlag:fal
 function buildPrompt(ch,index){
   const cfg=CHANNELS[ch];
   return `You are a YouTube Shorts scriptwriter. Scripts MUST comply with YouTube 2026 monetization policies.
-
 RULES:
 1. Every script needs a UNIQUE angle — no repeated hook structures
 2. No templated phrases repeated across scripts
-3. For finance: never say "you should invest", "buy this stock", "guaranteed returns" — use "some people find...", "one approach is..."
+3. For finance: never say "you should invest", "buy this stock", "guaranteed returns"
 4. Must feel written by a thoughtful human, not a bot
 5. Provide GENUINE VALUE — viewer learns something real
 
@@ -212,28 +191,27 @@ Topic: ${cfg.prompt}
 Tone: ${state.tone}
 Video ${index+1} of ${state.batch} in a daily series. Use a surprising or counterintuitive angle.
 
-Return ONLY valid JSON (no markdown, no backticks):
-{"title":"hook-driven title under 60 chars","uniqueAngle":"one sentence: what makes this different","hook":"opening line first 3 seconds","script":["line1","line2","line3","line4","line5","line6","line7"],"cta":"call to action","hashtags":["#tag1","#tag2","#tag3","#tag4","#tag5"],"description":"SEO description under 150 chars","disclaimer":"${cfg.disclaimer}","disclosureLabel":"${cfg.disclosureLabel}","musicSuggestion":"one royalty-free track from YouTube Audio Library","bestPostTime":"best time to post","estimatedRPM":"${cfg.rpm}","visualSuggestions":["v1","v2","v3","v4","v5","v6","v7"],"complianceNotes":["why this is monetization-safe"]}`;
+Return ONLY valid JSON with NO markdown or backticks:
+{"title":"hook-driven title under 60 chars","uniqueAngle":"one sentence what makes this different","hook":"opening line first 3 seconds","script":["line1","line2","line3","line4","line5","line6","line7"],"cta":"call to action","hashtags":["#tag1","#tag2","#tag3","#tag4","#tag5"],"description":"SEO description under 150 chars","disclaimer":"${cfg.disclaimer}","disclosureLabel":"${cfg.disclosureLabel}","musicSuggestion":"one royalty-free track from YouTube Audio Library","bestPostTime":"best time to post","estimatedRPM":"${cfg.rpm}","visualSuggestions":["v1","v2","v3","v4","v5","v6","v7"],"complianceNotes":["why this is monetization-safe"]}`;
 }
 
 async function generateOne(index){
   const key=document.getElementById("api-key").value.trim();
-  if(!key) throw new Error("Enter your Gemini API key.");
-  const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,{
+  if(!key) throw new Error("Enter your Groq API key.");
+  const res=await fetch("https://api.groq.com/openai/v1/chat/completions",{
     method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({contents:[{parts:[{text:buildPrompt(state.ch,index)}]}],generationConfig:{temperature:0.9,maxOutputTokens:1200}})
+    headers:{"Content-Type":"application/json","Authorization":"Bearer "+key},
+    body:JSON.stringify({model:"llama-3.3-70b-versatile",messages:[{role:"user",content:buildPrompt(state.ch,index)}],temperature:0.9,max_tokens:1200,response_format:{type:"json_object"}})
   });
   const data=await res.json();
   if(data.error) throw new Error(data.error.message);
-  const text=data.candidates?.[0]?.content?.parts?.[0]?.text||"";
-  const clean=text.replace(/```json|```/g,"").trim();
-  return JSON.parse(clean);
+  const text=data.choices?.[0]?.message?.content||"";
+  return JSON.parse(text);
 }
 
 async function startGenerate(){
   const key=document.getElementById("api-key").value.trim();
-  if(!key){showErr("Enter your Gemini API key first.");return;}
+  if(!key){showErr("Enter your Groq API key first.");return;}
   state.generating=true;state.stopFlag=false;
   state.scripts[state.ch]=[];state.activeIdx[state.ch]=null;
   showErr("");renderQueue();renderDetail();
@@ -258,7 +236,6 @@ async function startGenerate(){
 function stopGenerate(){state.stopFlag=true;state.generating=false;document.getElementById("gen-area").innerHTML=`<button class="gen-btn" id="gen-btn" onclick="startGenerate()">GENERATE ${state.batch} SCRIPTS</button>`;}
 function showErr(msg){const el=document.getElementById("err-box");el.textContent=msg;el.style.display=msg?"block":"none";}
 function selectScript(i){state.activeIdx[state.ch]=i;renderQueue();renderDetail();}
-
 function buildToneChips(){const el=document.getElementById("tone-chips");el.innerHTML="";TONES.forEach(t=>{const d=document.createElement("div");d.className="chip"+(state.tone===t?" active":"");d.textContent=t;d.onclick=()=>{state.tone=t;buildToneChips();};el.appendChild(d);});}
 buildToneChips();
 document.getElementById("batch-range").addEventListener("input",e=>{state.batch=+e.target.value;document.getElementById("batch-lbl").textContent=`${state.batch} scripts`;document.getElementById("batch-days").textContent=`~${state.batch} day${state.batch>1?"s":""}`;const btn=document.getElementById("gen-btn");if(btn)btn.textContent=`GENERATE ${state.batch} SCRIPTS`;});
