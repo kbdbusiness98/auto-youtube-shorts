@@ -13,8 +13,6 @@ body[data-ch="finance"]{--accent:#22c55e;--accent-dim:rgba(34,197,94,0.1);--acce
 body[data-ch="tech"]{--accent:#60a5fa;--accent-dim:rgba(96,165,250,0.1);--accent-border:rgba(96,165,250,0.3)}
 body[data-ch="edu"]{--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.1);--accent-border:rgba(245,158,11,0.3)}
 #app{display:flex;flex-direction:column;height:100vh}
-
-/* Channel bar */
 .ch-bar{display:flex;border-bottom:1px solid #1a1a1a;flex-shrink:0}
 .ch-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 6px 0;cursor:pointer;border-right:1px solid #1a1a1a;transition:all .15s;position:relative}
 .ch-tab:last-child{border-right:none}
@@ -27,11 +25,7 @@ body[data-ch="edu"]{--accent:#f59e0b;--accent-dim:rgba(245,158,11,0.1);--accent-
 .ch-tab.active .name{color:var(--accent)}
 .ch-tab.active .cnt{color:var(--accent)}
 .ch-tab.active .bar{background:var(--accent)}
-
-/* Body */
 .body{display:flex;flex:1;overflow:hidden}
-
-/* Left panel */
 .lp{width:280px;border-right:1px solid #1a1a1a;padding:16px 14px;overflow-y:auto;flex-shrink:0}
 .sec{margin-bottom:18px}
 .lbl{font-size:10px;color:#444;letter-spacing:2px;margin-bottom:8px}
@@ -55,25 +49,18 @@ input[type=range]{width:100%;accent-color:var(--accent);margin-top:5px}
 .prog-bar{height:2px;background:#1a1a1a;border-radius:1px}
 .prog-fill{height:100%;background:var(--accent);transition:width .4s ease;border-radius:1px}
 .err{margin-top:8px;font-size:11px;color:#f87171;padding:7px 9px;border:1px solid rgba(248,113,113,0.3);border-radius:3px}
-
-/* Channel info card */
 .ch-card{padding:12px;background:#0d0d0d;border:1px solid #1a1a1a;border-left:2px solid var(--accent);border-radius:3px;margin-bottom:18px}
 .ch-card-name{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;color:var(--accent);margin-bottom:3px}
 .ch-card-desc{font-size:10px;color:#444;line-height:1.5}
-
-/* Compliance badge */
 .compliance-box{padding:10px 12px;background:#0d0d0d;border:1px solid #1a1a1a;border-radius:3px;margin-top:14px}
 .compliance-title{font-size:10px;color:#444;letter-spacing:2px;margin-bottom:8px}
 .comp-row{display:flex;align-items:center;gap:7px;font-size:10px;color:#555;margin-bottom:5px}
 .comp-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0}
 .comp-dot.warn{background:#f59e0b}
-
-/* API notice */
 .api-notice{font-size:10px;color:#333;line-height:1.5;margin-top:4px}
 .api-notice a{color:var(--accent);text-decoration:none}
 .api-notice a:hover{text-decoration:underline}
-
-/* Queue */
+.free-badge{display:inline-block;padding:2px 6px;background:rgba(34,197,94,0.15);color:#22c55e;border-radius:2px;font-size:9px;margin-left:4px;letter-spacing:1px}
 .qp{width:210px;border-right:1px solid #1a1a1a;padding:14px 11px;overflow-y:auto;flex-shrink:0}
 .sc{border:1px solid #1e1e1e;border-radius:3px;padding:9px 10px;cursor:pointer;transition:all .15s;background:#0d0d0d;margin-bottom:6px}
 .sc:hover{border-color:#333}
@@ -87,8 +74,6 @@ input[type=range]{width:100%;accent-color:var(--accent);margin-top:5px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .slide-in{animation:si .25s ease}
 @keyframes si{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-
-/* Detail */
 .dp{flex:1;overflow-y:auto;padding:22px 24px}
 .empty-dp{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:#1e1e1e}
 .empty-dp-t{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:4px}
@@ -119,25 +104,19 @@ input[type=range]{width:100%;accent-color:var(--accent);margin-top:5px}
 .full-btn{background:transparent;border:1px solid #2a2a2a;color:#555;padding:11px;font-family:'DM Mono',monospace;font-size:11px;cursor:pointer;border-radius:3px;width:100%;transition:all .15s}
 .full-btn:hover{border-color:var(--accent);color:var(--accent)}
 .full-btn.done{border-color:#22c55e;color:#22c55e}
-
-/* Compliance detail panel */
 .comply-panel{margin-bottom:20px;padding:12px 14px;background:#0d0d0d;border:1px solid #1a1a1a;border-radius:3px}
 .comply-panel-title{font-size:10px;color:#444;letter-spacing:2px;margin-bottom:10px}
 .comply-item{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;font-size:11px}
 .comply-icon{flex-shrink:0;margin-top:1px}
 .comply-text{color:#666;line-height:1.4}
 .comply-text strong{color:#999}
-
 .disclaimer-box{padding:10px 13px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:3px;font-size:10px;color:#888;line-height:1.5;margin-bottom:20px}
 .disclaimer-box strong{color:#f59e0b}
-
 @media(max-width:768px){.body{flex-direction:column}.lp{width:100%;border-right:none;border-bottom:1px solid #1a1a1a;max-height:45vh}.qp{display:none}.two-col{grid-template-columns:1fr}.stats{flex-wrap:wrap}}
 </style>
 </head>
 <body data-ch="finance">
 <div id="app">
-
-  <!-- Channel switcher -->
   <div class="ch-bar">
     <div class="ch-tab active" data-ch="finance" onclick="switchChannel('finance')">
       <div class="icon">💰</div>
@@ -158,44 +137,30 @@ input[type=range]{width:100%;accent-color:var(--accent);margin-top:5px}
       <div class="bar"></div>
     </div>
   </div>
-
   <div class="body">
-    <!-- Left panel -->
     <div class="lp">
-
-      <!-- Channel info -->
       <div id="ch-card" class="ch-card">
         <div class="ch-card-name" id="ch-name">💰 Money Moves Daily</div>
         <div class="ch-card-desc" id="ch-desc">Personal finance tips, budgeting hacks, investing basics</div>
       </div>
-
-      <!-- API Key -->
       <div class="sec">
-        <div class="lbl">ANTHROPIC API KEY</div>
-        <input type="password" id="api-key" placeholder="sk-ant-..."/>
-        <div class="api-notice">Free key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></div>
+        <div class="lbl">GEMINI API KEY <span class="free-badge">FREE</span></div>
+        <input type="password" id="api-key" placeholder="AIza..."/>
+        <div class="api-notice">Free key at <a href="https://aistudio.google.com" target="_blank">aistudio.google.com</a> → Get API Key (1,500 req/day free)</div>
       </div>
-
-      <!-- Tone -->
       <div class="sec">
         <div class="lbl">TONE</div>
         <div class="chips-row" id="tone-chips"></div>
       </div>
-
-      <!-- Batch -->
       <div class="sec">
         <div class="lbl">BATCH — <span id="batch-lbl" style="color:var(--accent)">7 scripts</span></div>
         <input type="range" id="batch-range" min="1" max="30" value="7"/>
         <div class="range-lbl"><span>1</span><span id="batch-days">~7 days</span><span>30</span></div>
       </div>
-
-      <!-- Generate -->
       <div id="gen-area">
         <button class="gen-btn" id="gen-btn" onclick="startGenerate()">GENERATE 7 SCRIPTS</button>
       </div>
       <div id="err-box" class="err" style="display:none"></div>
-
-      <!-- Compliance checklist -->
       <div class="compliance-box">
         <div class="compliance-title">YT COMPLIANCE BUILT-IN</div>
         <div class="comp-row"><div class="comp-dot"></div>Unique angle per script</div>
@@ -203,20 +168,16 @@ input[type=range]{width:100%;accent-color:var(--accent);margin-top:5px}
         <div class="comp-row"><div class="comp-dot"></div>AI disclosure label included</div>
         <div class="comp-row"><div class="comp-dot"></div>Royalty-free music notes</div>
         <div class="comp-row"><div class="comp-dot"></div>No financial advice language</div>
-        <div class="comp-row"><div class="comp-dot warn"></div>You must review before upload</div>
+        <div class="comp-row"><div class="comp-dot warn"></div>Review before upload</div>
         <div class="comp-row"><div class="comp-dot warn"></div>Add your own visual variation</div>
       </div>
     </div>
-
-    <!-- Queue -->
     <div class="qp">
       <div class="lbl" style="margin-bottom:10px">SCRIPT QUEUE</div>
       <div id="queue-list">
         <div class="empty-q"><div class="pulse" style="font-size:22px;margin-bottom:8px">▶</div>No scripts yet</div>
       </div>
     </div>
-
-    <!-- Detail -->
     <div class="dp" id="detail-panel">
       <div class="empty-dp">
         <div class="empty-dp-t">READY</div>
@@ -227,163 +188,66 @@ input[type=range]{width:100%;accent-color:var(--accent);margin-top:5px}
 </div>
 
 <script>
-// ── Channel config ──────────────────────────────────────────
 const CHANNELS = {
-  finance: {
-    name:"💰 Money Moves Daily",
-    desc:"Personal finance tips, budgeting hacks, investing basics",
-    prompt:"personal finance, budgeting, saving money, investing basics, financial independence, passive income strategies, debt payoff, credit scores",
-    rpm:"$0.10–$0.25",
-    disclaimer:"This content is for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making investment decisions.",
-    disclosureLabel:"This video was created with AI assistance."
-  },
-  tech: {
-    name:"💻 TechIn60",
-    desc:"AI tools, productivity apps, life-changing tech hacks",
-    prompt:"AI tools, productivity software, tech hacks, useful apps, automation tools, digital tools that save time, emerging technology explained simply",
-    rpm:"$0.08–$0.20",
-    disclaimer:"Product mentions are for informational purposes only. Not sponsored unless stated.",
-    disclosureLabel:"This video was created with AI assistance."
-  },
-  edu: {
-    name:"🎓 Did You Know Daily",
-    desc:"Mind-blowing quick facts, science, history, psychology",
-    prompt:"surprising facts, science explained simply, psychology insights, history facts people don't know, counterintuitive truths, mind-blowing statistics",
-    rpm:"$0.06–$0.15",
-    disclaimer:"Facts are researched for accuracy. Sources available on request.",
-    disclosureLabel:"This video was created with AI assistance."
-  }
+  finance:{name:"💰 Money Moves Daily",desc:"Personal finance tips, budgeting hacks, investing basics",prompt:"personal finance, budgeting, saving money, investing basics, financial independence, passive income strategies, debt payoff, credit scores",rpm:"$0.10–$0.25",disclaimer:"This content is for educational purposes only. Not financial advice. Always consult a qualified financial advisor before making investment decisions.",disclosureLabel:"This video was created with AI assistance."},
+  tech:{name:"💻 TechIn60",desc:"AI tools, productivity apps, life-changing tech hacks",prompt:"AI tools, productivity software, tech hacks, useful apps, automation tools, digital tools that save time, emerging technology explained simply",rpm:"$0.08–$0.20",disclaimer:"Product mentions are for informational purposes only. Not sponsored unless stated.",disclosureLabel:"This video was created with AI assistance."},
+  edu:{name:"🎓 Did You Know Daily",desc:"Mind-blowing quick facts, science, history, psychology",prompt:"surprising facts, science explained simply, psychology insights, history facts people don't know, counterintuitive truths, mind-blowing statistics",rpm:"$0.06–$0.15",disclaimer:"Facts are researched for accuracy. Sources available on request.",disclosureLabel:"This video was created with AI assistance."}
 };
+const TONES=["Educational","Shocking fact","Storytelling","Motivational","Listicle"];
+let state={ch:"finance",tone:"Educational",batch:7,generating:false,stopFlag:false,scripts:{finance:[],tech:[],edu:[]},activeIdx:{finance:null,tech:null,edu:null}};
 
-const TONES = ["Educational","Shocking fact","Storytelling","Motivational","Listicle"];
+function buildPrompt(ch,index){
+  const cfg=CHANNELS[ch];
+  return `You are a YouTube Shorts scriptwriter. Scripts MUST comply with YouTube 2026 monetization policies.
 
-// ── State ────────────────────────────────────────────────────
-let state = {
-  ch: "finance",
-  tone: "Educational",
-  batch: 7,
-  generating: false,
-  stopFlag: false,
-  scripts: { finance:[], tech:[], edu:[] },
-  activeIdx: { finance:null, tech:null, edu:null }
-};
+RULES:
+1. Every script needs a UNIQUE angle — no repeated hook structures
+2. No templated phrases repeated across scripts
+3. For finance: never say "you should invest", "buy this stock", "guaranteed returns" — use "some people find...", "one approach is..."
+4. Must feel written by a thoughtful human, not a bot
+5. Provide GENUINE VALUE — viewer learns something real
 
-// ── System prompt (compliance-first) ─────────────────────────
-function buildSystem(ch) {
-  const cfg = CHANNELS[ch];
-  return `You are a YouTube Shorts scriptwriter. Your scripts MUST comply with YouTube's 2026 monetization policies.
-
-COMPLIANCE RULES (strictly follow):
-1. Every script must have a UNIQUE angle — no two scripts can use the same hook structure or opening
-2. No templated phrases like "Did you know that..." repeated across scripts
-3. No financial advice language (for finance): never say "you should invest", "buy this stock", "guaranteed returns" — use "some people find that...", "one approach is..."
-4. Each script must feel written by a thoughtful human, not generated by a bot
-5. Include a disclosure note in the description
-6. Suggest royalty-free music from YouTube Audio Library only
-7. Script must provide GENUINE VALUE — a viewer should learn something real
-
-Return ONLY valid JSON:
-{
-  "title": "Unique hook-driven title under 60 chars",
-  "uniqueAngle": "One sentence: what makes this script different from generic content",
-  "hook": "Opening line (first 3 seconds) — creates curiosity without being clickbait",
-  "script": ["line1","line2","line3","line4","line5","line6","line7"],
-  "cta": "Call to action — follow for more [topic]",
-  "hashtags": ["#tag1","#tag2","#tag3","#tag4","#tag5"],
-  "description": "SEO description under 150 chars",
-  "disclaimer": "${cfg.disclaimer}",
-  "disclosureLabel": "${cfg.disclosureLabel}",
-  "musicSuggestion": "One specific royalty-free track from YouTube Audio Library that fits this video",
-  "bestPostTime": "Best time to post",
-  "estimatedRPM": "${cfg.rpm}",
-  "visualSuggestions": ["visual1","visual2","visual3","visual4","visual5","visual6","visual7"],
-  "complianceNotes": ["note about what makes this monetization-safe"]
-}
-
-Rules: 5-10 words per script line. 45-55 seconds total. Optimize for US/CA/UK audiences. Every line must earn its place.`;
-}
-
-// ── Init ─────────────────────────────────────────────────────
-function buildToneChips() {
-  const el = document.getElementById("tone-chips");
-  el.innerHTML = "";
-  TONES.forEach(t => {
-    const d = document.createElement("div");
-    d.className = "chip" + (state.tone===t?" active":"");
-    d.textContent = t;
-    d.onclick = () => { state.tone=t; buildToneChips(); };
-    el.appendChild(d);
-  });
-}
-buildToneChips();
-
-document.getElementById("batch-range").addEventListener("input", e => {
-  state.batch = +e.target.value;
-  document.getElementById("batch-lbl").textContent = `${state.batch} scripts`;
-  document.getElementById("batch-days").textContent = `~${state.batch} day${state.batch>1?"s":""}`;
-  const btn = document.getElementById("gen-btn");
-  if(btn) btn.textContent = `GENERATE ${state.batch} SCRIPTS`;
-});
-
-function switchChannel(ch) {
-  state.ch = ch;
-  document.body.setAttribute("data-ch", ch);
-  document.querySelectorAll(".ch-tab").forEach(t => t.classList.toggle("active", t.dataset.ch===ch));
-  const cfg = CHANNELS[ch];
-  document.getElementById("ch-name").textContent = cfg.name;
-  document.getElementById("ch-desc").textContent = cfg.desc;
-  renderQueue();
-  renderDetail();
-}
-
-// ── Generate ─────────────────────────────────────────────────
-async function generateOne(index) {
-  const key = document.getElementById("api-key").value.trim();
-  if(!key) throw new Error("Enter your Anthropic API key.");
-  const cfg = CHANNELS[state.ch];
-  const userPrompt = `Create YouTube Short #${index+1} for channel: "${cfg.name}"
-Topic area: ${cfg.prompt}
+Create YouTube Short #${index+1} for channel: "${cfg.name}"
+Topic: ${cfg.prompt}
 Tone: ${state.tone}
-This is video ${index+1} of ${state.batch} in a daily series. Make it completely distinct from a typical video in this niche.
-Include a surprising, counterintuitive, or underreported angle that provides real value.`;
+Video ${index+1} of ${state.batch} in a daily series. Use a surprising or counterintuitive angle.
 
-  const res = await fetch("https://api.anthropic.com/v1/messages",{
-    method:"POST",
-    headers:{"Content-Type":"application/json","x-api-key":key,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
-    body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:1200,system:buildSystem(state.ch),messages:[{role:"user",content:userPrompt}]})
-  });
-  const data = await res.json();
-  if(data.error) throw new Error(data.error.message);
-  const text = data.content?.map(b=>b.text||"").join("").replace(/```json|```/g,"").trim();
-  return JSON.parse(text);
+Return ONLY valid JSON (no markdown, no backticks):
+{"title":"hook-driven title under 60 chars","uniqueAngle":"one sentence: what makes this different","hook":"opening line first 3 seconds","script":["line1","line2","line3","line4","line5","line6","line7"],"cta":"call to action","hashtags":["#tag1","#tag2","#tag3","#tag4","#tag5"],"description":"SEO description under 150 chars","disclaimer":"${cfg.disclaimer}","disclosureLabel":"${cfg.disclosureLabel}","musicSuggestion":"one royalty-free track from YouTube Audio Library","bestPostTime":"best time to post","estimatedRPM":"${cfg.rpm}","visualSuggestions":["v1","v2","v3","v4","v5","v6","v7"],"complianceNotes":["why this is monetization-safe"]}`;
 }
 
-async function startGenerate() {
-  const key = document.getElementById("api-key").value.trim();
-  if(!key){showErr("Enter your Anthropic API key first.");return;}
-  state.generating=true; state.stopFlag=false;
-  state.scripts[state.ch]=[];
-  state.activeIdx[state.ch]=null;
-  showErr("");
-  renderQueue(); renderDetail();
+async function generateOne(index){
+  const key=document.getElementById("api-key").value.trim();
+  if(!key) throw new Error("Enter your Gemini API key.");
+  const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({contents:[{parts:[{text:buildPrompt(state.ch,index)}]}],generationConfig:{temperature:0.9,maxOutputTokens:1200}})
+  });
+  const data=await res.json();
+  if(data.error) throw new Error(data.error.message);
+  const text=data.candidates?.[0]?.content?.parts?.[0]?.text||"";
+  const clean=text.replace(/```json|```/g,"").trim();
+  return JSON.parse(clean);
+}
 
-  document.getElementById("gen-area").innerHTML=`
-    <div class="prog-wrap">
-      <div class="prog-top"><span class="pulse" id="prog-lbl">Writing scripts...</span><span class="prog-pct" id="prog-pct">0%</span></div>
-      <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
-    </div>
-    <button class="stop-btn" onclick="stopGenerate()">STOP</button>`;
-
-  const ch = state.ch;
+async function startGenerate(){
+  const key=document.getElementById("api-key").value.trim();
+  if(!key){showErr("Enter your Gemini API key first.");return;}
+  state.generating=true;state.stopFlag=false;
+  state.scripts[state.ch]=[];state.activeIdx[state.ch]=null;
+  showErr("");renderQueue();renderDetail();
+  document.getElementById("gen-area").innerHTML=`<div class="prog-wrap"><div class="prog-top"><span class="pulse" id="prog-lbl">Writing scripts...</span><span class="prog-pct" id="prog-pct">0%</span></div><div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div></div><button class="stop-btn" onclick="stopGenerate()">STOP</button>`;
+  const ch=state.ch;
   for(let i=0;i<state.batch;i++){
     if(state.stopFlag||state.ch!==ch) break;
     try{
-      const s = await generateOne(i);
+      const s=await generateOne(i);
       state.scripts[ch].push(s);
       if(state.activeIdx[ch]===null) state.activeIdx[ch]=0;
       const pct=Math.round(((i+1)/state.batch)*100);
       const f=document.getElementById("prog-fill"),p=document.getElementById("prog-pct");
-      if(f)f.style.width=pct+"%"; if(p)p.textContent=pct+"%";
+      if(f)f.style.width=pct+"%";if(p)p.textContent=pct+"%";
       document.getElementById(`cnt-${ch}`).textContent=`${state.scripts[ch].length} script${state.scripts[ch].length!==1?"s":""}`;
       if(state.ch===ch){renderQueue();renderDetail();}
     }catch(e){showErr(e.message||"Error — check API key.");break;}
@@ -391,161 +255,44 @@ async function startGenerate() {
   state.generating=false;
   document.getElementById("gen-area").innerHTML=`<button class="gen-btn" id="gen-btn" onclick="startGenerate()">GENERATE ${state.batch} SCRIPTS</button>`;
 }
-
-function stopGenerate(){
-  state.stopFlag=true; state.generating=false;
-  document.getElementById("gen-area").innerHTML=`<button class="gen-btn" id="gen-btn" onclick="startGenerate()">GENERATE ${state.batch} SCRIPTS</button>`;
-}
+function stopGenerate(){state.stopFlag=true;state.generating=false;document.getElementById("gen-area").innerHTML=`<button class="gen-btn" id="gen-btn" onclick="startGenerate()">GENERATE ${state.batch} SCRIPTS</button>`;}
 function showErr(msg){const el=document.getElementById("err-box");el.textContent=msg;el.style.display=msg?"block":"none";}
 function selectScript(i){state.activeIdx[state.ch]=i;renderQueue();renderDetail();}
 
-// ── Render queue ──────────────────────────────────────────────
+function buildToneChips(){const el=document.getElementById("tone-chips");el.innerHTML="";TONES.forEach(t=>{const d=document.createElement("div");d.className="chip"+(state.tone===t?" active":"");d.textContent=t;d.onclick=()=>{state.tone=t;buildToneChips();};el.appendChild(d);});}
+buildToneChips();
+document.getElementById("batch-range").addEventListener("input",e=>{state.batch=+e.target.value;document.getElementById("batch-lbl").textContent=`${state.batch} scripts`;document.getElementById("batch-days").textContent=`~${state.batch} day${state.batch>1?"s":""}`;const btn=document.getElementById("gen-btn");if(btn)btn.textContent=`GENERATE ${state.batch} SCRIPTS`;});
+function switchChannel(ch){state.ch=ch;document.body.setAttribute("data-ch",ch);document.querySelectorAll(".ch-tab").forEach(t=>t.classList.toggle("active",t.dataset.ch===ch));const cfg=CHANNELS[ch];document.getElementById("ch-name").textContent=cfg.name;document.getElementById("ch-desc").textContent=cfg.desc;renderQueue();renderDetail();}
+
 function renderQueue(){
   const el=document.getElementById("queue-list");
-  const scripts=state.scripts[state.ch];
-  const activeIdx=state.activeIdx[state.ch];
-  if(scripts.length===0){
-    el.innerHTML=state.generating
-      ?`<div class="empty-q"><div class="pulse" style="font-size:20px;margin-bottom:8px">◌</div>Writing...</div>`
-      :`<div class="empty-q"><div class="pulse" style="font-size:20px;margin-bottom:8px">▶</div>No scripts yet</div>`;
-    return;
-  }
-  el.innerHTML=scripts.map((s,i)=>`
-    <div class="sc slide-in ${activeIdx===i?"active":""}" onclick="selectScript(${i})">
-      <div class="sc-num">#${String(i+1).padStart(2,"0")}</div>
-      <div class="sc-title">${esc(s.title||"")}</div>
-      <div class="sc-rpm">${esc(s.estimatedRPM||"")} RPM</div>
-      <div class="sc-comply">✓ compliance checked</div>
-    </div>`).join("")+(state.generating?`<div class="sc" style="opacity:.4"><div class="pulse" style="font-size:10px;color:#444">Writing next...</div></div>`:"");
+  const scripts=state.scripts[state.ch];const activeIdx=state.activeIdx[state.ch];
+  if(scripts.length===0){el.innerHTML=state.generating?`<div class="empty-q"><div class="pulse" style="font-size:20px;margin-bottom:8px">◌</div>Writing...</div>`:`<div class="empty-q"><div class="pulse" style="font-size:20px;margin-bottom:8px">▶</div>No scripts yet</div>`;return;}
+  el.innerHTML=scripts.map((s,i)=>`<div class="sc slide-in ${activeIdx===i?"active":""}" onclick="selectScript(${i})"><div class="sc-num">#${String(i+1).padStart(2,"0")}</div><div class="sc-title">${esc(s.title||"")}</div><div class="sc-rpm">${esc(s.estimatedRPM||"")} RPM</div><div class="sc-comply">✓ compliance checked</div></div>`).join("")+(state.generating?`<div class="sc" style="opacity:.4"><div class="pulse" style="font-size:10px;color:#444">Writing next...</div></div>`:"");
 }
 
-// ── Render detail ─────────────────────────────────────────────
 function renderDetail(){
   const el=document.getElementById("detail-panel");
-  const scripts=state.scripts[state.ch];
-  const idx=state.activeIdx[state.ch];
-  if(idx===null||!scripts[idx]){
-    el.innerHTML=`<div class="empty-dp"><div class="empty-dp-t">READY</div><div class="empty-dp-s">Generate scripts to get started</div></div>`;
-    return;
-  }
+  const scripts=state.scripts[state.ch];const idx=state.activeIdx[state.ch];
+  if(idx===null||!scripts[idx]){el.innerHTML=`<div class="empty-dp"><div class="empty-dp-t">READY</div><div class="empty-dp-s">Generate scripts to get started</div></div>`;return;}
   const s=scripts[idx];
   el.innerHTML=`<div class="slide-in">
-    <!-- Header -->
-    <div class="dh">
-      <div style="flex:1">
-        <div class="lbl" style="margin-bottom:5px">VIDEO TITLE</div>
-        <div class="dt">${esc(s.title||"")}</div>
-        ${s.uniqueAngle?`<div style="font-size:10px;color:#555;margin-top:5px;line-height:1.4">↳ ${esc(s.uniqueAngle)}</div>`:""}
-      </div>
-      <div class="da">
-        <button class="copy-btn" id="cb-title" onclick="cp('${ea(s.title||"")}','cb-title')">copy title</button>
-        <button class="copy-btn" onclick="exportScript()">↓ export</button>
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="stats">
-      <div class="stat"><div class="stat-l">EST. RPM</div><div class="stat-v" style="color:#22c55e">${esc(s.estimatedRPM||"")}</div></div>
-      <div class="stat"><div class="stat-l">POST TIME</div><div class="stat-v" style="color:#f59e0b">${esc(s.bestPostTime||"")}</div></div>
-      <div class="stat"><div class="stat-l">MUSIC</div><div class="stat-v" style="color:#c084fc;font-size:9px">${esc(s.musicSuggestion||"YT Audio Library")}</div></div>
-    </div>
-
-    <!-- Disclaimer / disclosure -->
-    <div class="disclaimer-box">
-      <strong>📋 REQUIRED IN DESCRIPTION:</strong><br/>
-      ${esc(s.disclaimer||"")}<br/>
-      <strong>🤖 AI DISCLOSURE:</strong> ${esc(s.disclosureLabel||"")}
-      <button class="copy-btn" id="cb-disc" style="margin-top:6px;display:block" onclick="cp('${ea((s.disclaimer||"")+"\n"+(s.disclosureLabel||""))}','cb-disc')">copy both</button>
-    </div>
-
-    <!-- Hook -->
-    <div class="blk">
-      <div class="lbl">HOOK (FIRST 3 SECONDS)</div>
-      <div class="hook-box">
-        <div class="hook-txt">"${esc(s.hook||"")}"</div>
-        <button class="copy-btn" id="cb-hook" onclick="cp('${ea(s.hook||"")}','cb-hook')">copy</button>
-      </div>
-    </div>
-
-    <!-- Script -->
-    <div class="blk">
-      <div class="blk-h">
-        <div class="lbl">SCRIPT (${(s.script||[]).length} LINES)</div>
-        <button class="copy-btn" id="cb-script" onclick="cpLines()">copy all</button>
-      </div>
-      <div class="script-box">
-        ${(s.script||[]).map((line,i)=>`
-          <div class="lr">
-            <div class="ln">${i+1}</div>
-            <div>
-              <div class="lt">${esc(line)}</div>
-              ${s.visualSuggestions?.[i]?`<div class="lv">🎬 ${esc(s.visualSuggestions[i])}</div>`:""}
-            </div>
-          </div>`).join("")}
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="blk">
-      <div class="lbl">CALL TO ACTION</div>
-      <div class="info-box">${esc(s.cta||"")}</div>
-    </div>
-
-    <!-- Description + Hashtags -->
-    <div class="two-col">
-      <div>
-        <div class="blk-h">
-          <div class="lbl">DESCRIPTION</div>
-          <button class="copy-btn" id="cb-desc" onclick="cp('${ea(s.description||"")}','cb-desc')">copy</button>
-        </div>
-        <div class="info-box">${esc(s.description||"")}</div>
-      </div>
-      <div>
-        <div class="blk-h">
-          <div class="lbl">HASHTAGS</div>
-          <button class="copy-btn" id="cb-tags" onclick="cp('${ea((s.hashtags||[]).join(" "))}','cb-tags')">copy</button>
-        </div>
-        <div class="info-box">${(s.hashtags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
-      </div>
-    </div>
-
-    <!-- Compliance notes -->
-    ${s.complianceNotes?.length?`
-    <div class="comply-panel">
-      <div class="comply-panel-title">WHY THIS IS MONETIZATION-SAFE</div>
-      ${s.complianceNotes.map(n=>`<div class="comply-item"><div class="comply-icon">✓</div><div class="comply-text">${esc(n)}</div></div>`).join("")}
-    </div>`:""}
-
-    <!-- Full copy -->
+    <div class="dh"><div style="flex:1"><div class="lbl" style="margin-bottom:5px">VIDEO TITLE</div><div class="dt">${esc(s.title||"")}</div>${s.uniqueAngle?`<div style="font-size:10px;color:#555;margin-top:5px;line-height:1.4">↳ ${esc(s.uniqueAngle)}</div>`:""}</div><div class="da"><button class="copy-btn" id="cb-title" onclick="cp('${ea(s.title||"")}','cb-title')">copy title</button><button class="copy-btn" onclick="exportScript()">↓ export</button></div></div>
+    <div class="stats"><div class="stat"><div class="stat-l">EST. RPM</div><div class="stat-v" style="color:#22c55e">${esc(s.estimatedRPM||"")}</div></div><div class="stat"><div class="stat-l">POST TIME</div><div class="stat-v" style="color:#f59e0b">${esc(s.bestPostTime||"")}</div></div><div class="stat"><div class="stat-l">MUSIC</div><div class="stat-v" style="color:#c084fc;font-size:9px">${esc(s.musicSuggestion||"YT Audio Library")}</div></div></div>
+    <div class="disclaimer-box"><strong>📋 REQUIRED IN DESCRIPTION:</strong><br/>${esc(s.disclaimer||"")}<br/><strong>🤖 AI DISCLOSURE:</strong> ${esc(s.disclosureLabel||"")}<button class="copy-btn" id="cb-disc" style="margin-top:6px;display:block" onclick="cp('${ea((s.disclaimer||"")+"\n"+(s.disclosureLabel||""))}','cb-disc')">copy both</button></div>
+    <div class="blk"><div class="lbl">HOOK (FIRST 3 SECONDS)</div><div class="hook-box"><div class="hook-txt">"${esc(s.hook||"")}"</div><button class="copy-btn" id="cb-hook" onclick="cp('${ea(s.hook||"")}','cb-hook')">copy</button></div></div>
+    <div class="blk"><div class="blk-h"><div class="lbl">SCRIPT (${(s.script||[]).length} LINES)</div><button class="copy-btn" id="cb-script" onclick="cpLines()">copy all</button></div><div class="script-box">${(s.script||[]).map((line,i)=>`<div class="lr"><div class="ln">${i+1}</div><div><div class="lt">${esc(line)}</div>${s.visualSuggestions?.[i]?`<div class="lv">🎬 ${esc(s.visualSuggestions[i])}</div>`:""}</div></div>`).join("")}</div></div>
+    <div class="blk"><div class="lbl">CALL TO ACTION</div><div class="info-box">${esc(s.cta||"")}</div></div>
+    <div class="two-col"><div><div class="blk-h"><div class="lbl">DESCRIPTION</div><button class="copy-btn" id="cb-desc" onclick="cp('${ea(s.description||"")}','cb-desc')">copy</button></div><div class="info-box">${esc(s.description||"")}</div></div><div><div class="blk-h"><div class="lbl">HASHTAGS</div><button class="copy-btn" id="cb-tags" onclick="cp('${ea((s.hashtags||[]).join(" "))}','cb-tags')">copy</button></div><div class="info-box">${(s.hashtags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div></div></div>
+    ${s.complianceNotes?.length?`<div class="comply-panel"><div class="comply-panel-title">WHY THIS IS MONETIZATION-SAFE</div>${s.complianceNotes.map(n=>`<div class="comply-item"><div class="comply-icon">✓</div><div class="comply-text">${esc(n)}</div></div>`).join("")}</div>`:""}
     <button class="full-btn" id="cb-all" onclick="cpAll()">COPY FULL SCRIPT + DESCRIPTION</button>
   </div>`;
 }
 
-// ── Helpers ───────────────────────────────────────────────────
-function cp(text,btnId){
-  navigator.clipboard.writeText(text).catch(()=>{});
-  const btn=document.getElementById(btnId);
-  if(btn){const o=btn.textContent;btn.textContent="✓ copied";btn.classList.add("done");setTimeout(()=>{btn.textContent=o;btn.classList.remove("done")},2000);}
-}
-function cpLines(){
-  const s=state.scripts[state.ch][state.activeIdx[state.ch]];
-  if(s) cp((s.script||[]).join("\n"),"cb-script");
-}
-function cpAll(){
-  const s=state.scripts[state.ch][state.activeIdx[state.ch]];
-  if(!s) return;
-  const full=[s.title,"",s.hook,"",...(s.script||[]),"",s.cta,"",s.description,"",s.disclaimer,"",s.disclosureLabel,"",(s.hashtags||[]).join(" ")].join("\n");
-  cp(full,"cb-all");
-}
-function exportScript(){
-  const s=state.scripts[state.ch][state.activeIdx[state.ch]];
-  if(!s) return;
-  const lines=["YOUTUBE SHORT SCRIPT","═══════════════════════",`CHANNEL: ${CHANNELS[state.ch].name}`,`TITLE: ${s.title}`,"",`HOOK: ${s.hook}`,"","SCRIPT:",...(s.script||[]).map((l,i)=>`[${i+1}] ${l}`),"",`CTA: ${s.cta}`,"","── UPLOAD DETAILS ──",`DESCRIPTION: ${s.description}`,`DISCLAIMER: ${s.disclaimer}`,`AI DISCLOSURE: ${s.disclosureLabel}`,`HASHTAGS: ${(s.hashtags||[]).join(" ")}`,`MUSIC: ${s.musicSuggestion||"YouTube Audio Library"}`,`BEST POST TIME: ${s.bestPostTime}`,`EST. RPM: ${s.estimatedRPM}`,"","── VISUALS ──",...(s.visualSuggestions||[]).map((v,i)=>`[${i+1}] ${v}`),"","── COMPLIANCE ──",...(s.complianceNotes||[]).map(n=>`✓ ${n}`)].join("\n");
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(new Blob([lines],{type:"text/plain"}));
-  a.download=`${state.ch}-short-${(s.title||"script").slice(0,25).replace(/\s/g,"-")}.txt`;
-  a.click();
-}
+function cp(text,btnId){navigator.clipboard.writeText(text).catch(()=>{});const btn=document.getElementById(btnId);if(btn){const o=btn.textContent;btn.textContent="✓ copied";btn.classList.add("done");setTimeout(()=>{btn.textContent=o;btn.classList.remove("done")},2000);}}
+function cpLines(){const s=state.scripts[state.ch][state.activeIdx[state.ch]];if(s)cp((s.script||[]).join("\n"),"cb-script");}
+function cpAll(){const s=state.scripts[state.ch][state.activeIdx[state.ch]];if(!s)return;const full=[s.title,"",s.hook,"",...(s.script||[]),"",s.cta,"",s.description,"",s.disclaimer,"",s.disclosureLabel,"",(s.hashtags||[]).join(" ")].join("\n");cp(full,"cb-all");}
+function exportScript(){const s=state.scripts[state.ch][state.activeIdx[state.ch]];if(!s)return;const lines=["YOUTUBE SHORT SCRIPT","═══════════════════════",`CHANNEL: ${CHANNELS[state.ch].name}`,`TITLE: ${s.title}`,"",`HOOK: ${s.hook}`,"","SCRIPT:",...(s.script||[]).map((l,i)=>`[${i+1}] ${l}`),"",`CTA: ${s.cta}`,"","── UPLOAD DETAILS ──",`DESCRIPTION: ${s.description}`,`DISCLAIMER: ${s.disclaimer}`,`AI DISCLOSURE: ${s.disclosureLabel}`,`HASHTAGS: ${(s.hashtags||[]).join(" ")}`,`MUSIC: ${s.musicSuggestion||"YouTube Audio Library"}`,`BEST POST TIME: ${s.bestPostTime}`,`EST. RPM: ${s.estimatedRPM}`,"","── VISUALS ──",...(s.visualSuggestions||[]).map((v,i)=>`[${i+1}] ${v}`),"","── COMPLIANCE ──",...(s.complianceNotes||[]).map(n=>`✓ ${n}`)].join("\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([lines],{type:"text/plain"}));a.download=`${state.ch}-short-${(s.title||"script").slice(0,25).replace(/\s/g,"-")}.txt`;a.click();}
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
 function ea(s){return String(s).replace(/'/g,"&#39;").replace(/\n/g," ")}
 </script>
